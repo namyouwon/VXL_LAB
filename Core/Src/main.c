@@ -212,11 +212,10 @@ int main(void)
   	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
   	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, 0);
   	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, 0);
-  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
+  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 0);
   while (1)
     {
 	  display7SEG(counter);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
 	  switch (currentState) {
 			case RED1_GREEN2:
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 0);
