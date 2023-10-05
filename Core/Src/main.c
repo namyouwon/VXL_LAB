@@ -208,30 +208,31 @@ int main(void)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 0);
   	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 0);
-  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, 1);
-  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 1);
-  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, 1);
-  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, 1);
-  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
+  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, 0);
+  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
+  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, 0);
+  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, 0);
+  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
   while (1)
     {
 	  display7SEG(counter);
+	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
 //	  switch (currentState) {
 //			case RED1_GREEN2:
 //				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 0);
 //				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, 1);
 //				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 1);
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, 1);
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, 1);
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, 1);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, 1);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 0);
 //				if (!counter) {
 //					nextState=RED1_YELLOW2;
 //					counter=2;
 //				}
 //				break;
 //			case RED1_YELLOW2:
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, 0);
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, 0);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 1);
 //				if (!counter) {
 //					nextState=GREEN1_RED2;
 //					counter=3;
@@ -240,8 +241,8 @@ int main(void)
 //			case GREEN1_RED2:
 //				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 1);
 //				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, 0);
-//				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, 1);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, 0);
+//				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, 1);
 //				if (!counter) {
 //					nextState=YELLOW1_RED2;
 //					counter=2;
@@ -256,11 +257,13 @@ int main(void)
 //				}
 //				break;
 //			}
+
+	  	  //currentState = nextState;
 	  	  counter--;
 	  	  if(counter<0){
-	  		  counter=5;
+	  		  counter=3;
 	  	  }
-//		  currentState = nextState;
+
 		  HAL_Delay(1000);
     }
 
